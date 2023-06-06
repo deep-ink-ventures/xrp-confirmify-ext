@@ -1,0 +1,36 @@
+
+body {
+    width: 550px;
+    height: 600px;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: 'Roboto', serif;
+    font-style: normal;
+}
+
+header {
+    padding: 12px;
+    border-bottom: 1px solid #E7E7E7;
+}
+
+main {
+    text-align: center;
+    padding: 32px 78px;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 33px;
+    line-height: 39px;
+    align-items: center;
+}
+
+p {
+    margin: 32px 0;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 27px;
+    color: #19161C;
+    opacity: 0.58;
+}
+

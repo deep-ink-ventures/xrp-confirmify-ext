@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Confirmify",
+  "description": "Confirmify Chrome Extension",
+  "version": "1.0.0",
+  "icons": {
+    "16": "images/icon.png",
+    "24": "images/icon.png",
+    "32": "images/icon.png",
+    "48": "images/icon.png",
+    "64": "images/icon.png",
+    "128": "images/icon.png",
+    "256": "images/icon.png"
+  },
+  "background": {
+    "service_worker": "background/index.ts",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/index.html"
+  },
+  "content_scripts": [
+      {
+          "matches": ["*://*.youtube.com/*"],
+          "js": ["injects/youtube.js"],
+          "css": ["injects/youtube.css"]
+      }
+  ],
+  "web_accessible_resources": [{
+    "resources": ["injects/youtube.js"],
+    "matches": ["http://localhost:8000/*"]
+  }]
+}
