@@ -1,9 +1,38 @@
-#confirmify-pending {
-    font-size: 16px;
+.confirmify {
+    font-size: 14px;
+    padding: 25px 0;
 }
+
+.confirmify svg {
+    position: absolute;
+    left: 0;
+    top: 20px;
+}
+
+.confirmify p {
+    padding-left: 30px;
+}
+
+.confirmify a:link {
+  color: #37F3FF;
+  text-decoration: none;
+}
+
+.confirmify a:visited {
+  color: #37F3FF;
+  text-decoration: none;
+}
+
+.confirmify .success{
+    color: #bbf7d0;
+}
+
+.confirmify .error{
+    color: #E20404;
+}
+
 #confirmify-pending svg {
   animation: rotate 3s infinite;
-   transform-origin: 50% 50%;
    transform-box: fill-box;
  }
 

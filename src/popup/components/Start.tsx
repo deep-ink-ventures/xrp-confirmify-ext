@@ -15,7 +15,7 @@ export const Start = ({onMonitoring}) => {
   
   return (
     <>
-      <img width={160} src={preview} alt="Logo"/>
+      <img width={125} src={preview} alt="Logo"/>
       <h1>Stay Informed,<br/>Browse Assured</h1>
       <p>Stay protected from misinformation and enjoy a seamless browsing experience. Empower yourself with the ability
         to verify content wherever you go.</p>

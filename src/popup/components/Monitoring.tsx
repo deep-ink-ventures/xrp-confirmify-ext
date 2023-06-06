@@ -17,6 +17,7 @@ export const Monitoring = ({onStopMonitoring}) => {
             <img width={150} src={preview} alt="Logo"/>
             <h1>Monitoring Content</h1>
             <p>Stay protected from misinformation and enjoy a seamless browsing experience. Empower yourself with the ability to verify content wherever you go.</p>
+            <br />
             <ActiveButton onClick={() => stopMonitoring()}>Stop monitoring</ActiveButton>
         </>
     );

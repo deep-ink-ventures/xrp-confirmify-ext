@@ -1,5 +1,5 @@
 const logo = `
-    <svg width="20" height="18" viewBox="0 0 29 26" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg width="25" height="23" viewBox="0 0 29 26" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <rect width="29" height="26" fill="url(#pattern0)"/>
         <defs>
         <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -19,25 +19,40 @@ function render(htmlString) {
     reference.parentNode.prepend(node);
 }
 
-
-
-
-function renderVerified(metadata) {
-    console.log(metadata)
+function renderVerified(nft) {
+    render(`
+        <div class="confirmify" id="confirmify-verified">
+            <p>${logo} Confirmify has <span class="success">verfiied</span> the <a target="_blank" href="${nft.nft_url}">video source</a>.</p>
+        </div>
+    `)
 }
 
 function renderNotVerified() {
-    console.log('not verified')
+    render(`
+        <div class="confirmify" id="confirmify-error">
+            <p>${logo} Confirmify can <span class="error">not verify</span> the source of this video.</a>.</p><
+        </div>
+    `)
 }
 
 function renderPending() {
     render(`
-        <div id="confirmify-pending">${logo} <span>Confirmify is busy verifying this video.</span></div>
+        <div class="confirmify" id="confirmify-pending">
+            <p>${logo} Confirmify is busy verifying this video.</p>
+        </div>
     `)
 }
 
 chrome.runtime.onMessage.addListener(msgObj => {
     if (msgObj.monitoring && window.location.href.indexOf('watch') > -1) {
+        const pending = document.getElementById('confirmify-pending');
+        const verified = document.getElementById('confirmify-pending');
+        const error = document.getElementById('confirmify-error');
+
+        if (pending) pending.remove()
+        if (verified) verified.remove()
+        if (error) error.remove
+
         renderPending();
         const requestOptions = {
             method: 'POST',
@@ -46,6 +61,7 @@ chrome.runtime.onMessage.addListener(msgObj => {
         };
         fetch('http://localhost:8000/api/v1/contents/verify/', requestOptions)
             .then((response) => {
+                document.getElementById('confirmify-pending').remove()
                 if(response.status === 200) {
                     return response.json().then(renderVerified)
                 }
