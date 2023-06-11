@@ -30,7 +30,7 @@ function renderVerified(nft) {
 function renderNotVerified() {
     render(`
         <div class="confirmify" id="confirmify-error">
-            <p>${logo} Confirmify can <span class="error">not verify</span> the source of this video.</a>.</p><
+            <p>${logo} Confirmify can <span class="error">not verify</span> the source of this video.</a>.</p>
         </div>
     `)
 }
