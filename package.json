@@ -12,7 +12,7 @@
   "author": "chp@deep-ink.ventures",
   "license": "MIT",
   "devDependencies": {
-    "@parcel/config-webextension": "^2.9.1",
+    "@parcel/config-webextension": "^2.9.2",
     "@types/chrome": "^0.0.237",
     "@types/fs-extra": "^11.0.1",
     "@types/react": "^18.2.7",
